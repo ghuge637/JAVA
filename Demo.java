@@ -1,33 +1,29 @@
-//Given an array of department names, print how many employees belong to each department.
-package hummingbird;
+package q1to10;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Demo {
+	public static void substring(String str, String ans, int index) {
+for (int i = index; i < str.length(); i++) {
+            
+            ans += str.charAt(i);
+
+            
+            System.out.println(ans);
+
+            
+            substring(str, ans, i + 1);
+
+            
+            ans = ans.substring(0, ans.length() - 1);
+        }
+	}
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
-//		String[] departments = str.split("\\s+");
-		String[] departments = str.split("\\s+");
-		 
-		HashMap<String, Integer> map = new HashMap<>();
-		
-			for(String dept: departments) {
-				dept=dept.trim();
-				if(dept.isEmpty())
-					continue;
-				
-				if(map.containsKey(dept)) {
-					map.put(dept, map.get(dept)+1);
-				}else {
-					map.put(dept, 1);
-				}
-			}
-			
-			for (String key : map.keySet()) {
-			    System.out.println(key + " : " + map.get(key));
-			}
+				System.out.println("Enter the String: ");
+				Scanner sc = new Scanner(System.in);
+				String st = sc.nextLine();
+								
+				substring(st,"",0);
 	}
 }
